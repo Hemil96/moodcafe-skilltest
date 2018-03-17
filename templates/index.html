@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Moodcafe</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+</head>
+<body>
+	<nav class="navbar navbar-light bg-light nav">
+	  <a class="navbar-brand" href="#">Moodcafe</a>
+	</nav>
+
+	<div class="container">
+		<form method="post" name="myform" onsubmit="return success();">
+		  <div class="form-group">
+		    <label for="exampleInputusrname">Username</label>
+	          <input type="text" class="form-control" id="validationDefault01" placeholder="Username" name="username" required>
+		    <small id="emailHelp" class="form-text text-muted">This form is created under moodcafe exercise</small>
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email</label>
+		    <input type="email" class="form-control" name="email" id="exampleInputEmail" placeholder="Email" required>
+		  </div>
+		  <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+		</form>
+		<div class="raw"></div>
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">Username</th>
+		      <th scope="col">Email</th>
+		  </thead>
+		  <tbody>
+		  	{% for each in data | reverse%}
+		    <tr>
+				<th> {{each[0]}} </th>
+		      	<td> {{each[1]}} </td>
+		    </tr>
+		    {% endfor %}
+		</table>
+			</div>
+<script>
+function success() {
+    	alert("Database updated successfully");
+    }
+</script>
+</body>
+</html>
